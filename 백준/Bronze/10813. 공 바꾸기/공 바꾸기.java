@@ -12,9 +12,7 @@ public class Main {
 		int M = Integer.parseInt(st.nextToken());
 
 		int[] basketArr = new int[N];
-		for (int b = 0; b < basketArr.length; b++) {
-			basketArr[b] = b+1;
-		}
+		Arrays.setAll(basketArr, i -> i+1);
 
 		for (int a = 0; a < M; a++) {
 			st = new StringTokenizer(br.readLine());
@@ -27,12 +25,12 @@ public class Main {
 			basketArr[j-1] = iOriValue;
 		}
 
-		String result = "";
+		StringBuilder sb = new StringBuilder();
 		for (int c = 0; c < basketArr.length; c++) {
-			if (c == basketArr.length - 1) result += basketArr[c];
-			else result += basketArr[c] + " ";
+			if (c == basketArr.length - 1) sb.append(basketArr[c]);
+			else sb.append(basketArr[c] + " ");
 		}
-		bw.write(result);
+		bw.write(String.valueOf(sb));
 
 		bw.flush();
 		bw.close();
